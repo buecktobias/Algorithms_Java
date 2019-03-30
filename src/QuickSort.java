@@ -1,5 +1,4 @@
 public class QuickSort {
-
     public static void swapTwoElements(int[] intArray,int index1,int index2){
         int temp = intArray[index1];
         intArray[index1] = intArray[index2];
@@ -33,25 +32,6 @@ public class QuickSort {
         }
         quickSort(intArray,startedLeftIndex,leftIndex-1);
         quickSort(intArray,leftIndex + 1,startedRightIndex);
-    }
-
-    public static void main(String[] args) {
-
-    }
-    public void makeThreads(){
-        for(int i = 0; i < 4; i++){
-            QuickSortThread t1 = new QuickSortThread();
-            t1.start();
-        }
-    }
-
-    private class QuickSortThread extends Thread{
-        @Override
-        public void run() {
-            for(int i = 0; i < 100;i++) {
-                System.out.println(Thread.currentThread().getId() + " Hallo "+ i);
-            }
-        }
     }
 }
 

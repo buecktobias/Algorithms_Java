@@ -4,31 +4,10 @@ import java.util.*;
 
 public class RandomSort {
     public static void randomSort(List<Integer> integerList){
-        while(!(isListSorted(integerList))){
+        while(!(Helper.isListSorted(integerList))){
             shuffleList(integerList);
         }
     }
-    public static boolean isListSorted(List<Integer> integerList){
-        Integer numberBefore = Integer.MIN_VALUE;  // braucht man eigentlich nicht
-        for (Integer integer : integerList) {
-            if(integer < numberBefore){
-                return false;
-            }
-            numberBefore = integer;
-        }
-        return true;
-    }
-    public static boolean isListSorted(int[] integerList){
-        Integer numberBefore = Integer.MIN_VALUE;  // braucht man eigentlich nicht
-        for (Integer integer : integerList) {
-            if(integer < numberBefore){
-                return false;
-            }
-            numberBefore = integer;
-        }
-        return true;
-    }
-
 
     public static void shuffleList(List<Integer> intList)
     {

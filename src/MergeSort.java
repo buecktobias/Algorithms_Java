@@ -51,11 +51,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] array1 = new int[]{99999999,-50000000,1,11,2,4};
         mergeTwoSortedLists(array1,2,3,6);
-        printArray(array1);
+        Helper.printArray(array1);
     }
-    public static void printArray(int[] arr){
-        for (int i : arr) {
-            System.out.print(i + ", ");
-        }
-    }
+
 }
