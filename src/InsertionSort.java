@@ -7,7 +7,7 @@ public class InsertionSort {
         while(i < right) {
             int j = i;
             while (j > 0 && intArray[ j - 1] > intArray[j]) {
-                Helper.swapTwoElements(intArray, j, j - 1);
+                Helper.swap(intArray, j, j - 1);
                 j--;
             }
             i++;

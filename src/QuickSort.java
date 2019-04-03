@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.MethodOrderer;
-
 public class QuickSort {
     public static void quickSortPivotLast(int[] intArray){
         quickSortPivotLast(intArray,0,intArray.length - 1,false,0);
@@ -26,12 +24,12 @@ public class QuickSort {
                     rightIndex--;
                 }
                 if (leftIndex < rightIndex) {
-                    Helper.swapTwoElements(intArray, leftIndex, rightIndex);
+                    Helper.swap(intArray, leftIndex, rightIndex);
                 }
 
             } while (leftIndex < rightIndex);
             if (intArray[leftIndex] > pivotValue) {
-                Helper.swapTwoElements(intArray, leftIndex, startedRightIndex);
+                Helper.swap(intArray, leftIndex, startedRightIndex);
             }
             quickSortPivotLast(intArray, startedLeftIndex, leftIndex - 1, insertionSort,maxInsertionSotLength);
             quickSortPivotLast(intArray, leftIndex + 1, startedRightIndex, insertionSort,maxInsertionSotLength);
@@ -53,12 +51,12 @@ public class QuickSort {
                 rightIndex--;
             }
             if(leftIndex < rightIndex){
-                Helper.swapTwoElements(intArray,leftIndex,rightIndex);
+                Helper.swap(intArray,leftIndex,rightIndex);
             }
 
         }while(leftIndex < rightIndex);
         if(intArray[leftIndex] > pivotValue){
-            Helper.swapTwoElements(intArray,leftIndex,startedRightIndex);
+            Helper.swap(intArray,leftIndex,startedRightIndex);
         }
         quickSortPivotRandom(intArray,startedLeftIndex,leftIndex-1);
         quickSortPivotRandom(intArray,leftIndex + 1,startedRightIndex);

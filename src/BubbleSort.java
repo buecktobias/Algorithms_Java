@@ -1,6 +1,3 @@
-import java.util.Collections;
-import java.util.Optional;
-
 public class BubbleSort {
     public static void bubbleSortOptimized(int[] intArray,boolean reversed){
         boolean elementsSwapped = true;
@@ -11,12 +8,12 @@ public class BubbleSort {
                 if(!reversed) {
                     if (intArray[i] < intArray[i - 1]) {
                         elementsSwapped = true;
-                        Helper.swapTwoElements(intArray, i - 1, i);
+                        Helper.swap(intArray, i - 1, i);
                     }
                 }else{
                     if(intArray[i] > intArray[i-1]){
                         elementsSwapped = true;
-                        Helper.swapTwoElements(intArray, i - 1, i);
+                        Helper.swap(intArray, i - 1, i);
                     }
                 }
             }
@@ -37,12 +34,12 @@ public class BubbleSort {
                 if(!reversed) {
                     if (intArray[i] < intArray[i - 1]) {
                         elementsSwapped = true;
-                        Helper.swapTwoElements(intArray, i - 1, i);
+                        Helper.swap(intArray, i - 1, i);
                     }
                 }else{
                     if(intArray[i] > intArray[i-1]){
                         elementsSwapped = true;
-                        Helper.swapTwoElements(intArray, i - 1, i);
+                        Helper.swap(intArray, i - 1, i);
                     }
                 }
             }
