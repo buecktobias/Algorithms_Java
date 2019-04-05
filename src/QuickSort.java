@@ -1,3 +1,5 @@
+import de.gmo.sae.sorting.visualization.ArrayVisualizer;
+
 public class QuickSort {
     public static void quickSortPivotLast(int[] intArray){
         quickSortPivotLast(intArray,0,intArray.length - 1,false,0);
@@ -6,11 +8,12 @@ public class QuickSort {
         quickSortPivotLast(intArray,0,intArray.length - 1,true,64);
 
     }
-    private static void quickSortPivotLast(int[] intArray, final int startedLeftIndex, final int startedRightIndex,final boolean insertionSort,int maxInsertionSotLength){
+    private static void quickSortPivotLast(int[] intArray, final int startedLeftIndex, final int startedRightIndex,final boolean insertionSort,int maxInsertionSortLength){
+        ArrayVisualizer arrayVisualizer = new ArrayVisualizer(intArray);
         if(startedLeftIndex >= startedRightIndex){
             return;
         }
-        if(insertionSort && startedRightIndex - startedLeftIndex < maxInsertionSotLength) {
+        if(insertionSort && startedRightIndex - startedLeftIndex < maxInsertionSortLength) {
                 InsertionSort.insertionSort(intArray, startedLeftIndex, startedRightIndex);
         }else {
             int rightIndex = startedRightIndex - 1;
@@ -25,14 +28,16 @@ public class QuickSort {
                 }
                 if (leftIndex < rightIndex) {
                     Helper.swap(intArray, leftIndex, rightIndex);
+                    arrayVisualizer.visualize();
                 }
 
             } while (leftIndex < rightIndex);
             if (intArray[leftIndex] > pivotValue) {
                 Helper.swap(intArray, leftIndex, startedRightIndex);
+                arrayVisualizer.visualize();
             }
-            quickSortPivotLast(intArray, startedLeftIndex, leftIndex - 1, insertionSort,maxInsertionSotLength);
-            quickSortPivotLast(intArray, leftIndex + 1, startedRightIndex, insertionSort,maxInsertionSotLength);
+            quickSortPivotLast(intArray, startedLeftIndex, leftIndex - 1, insertionSort,maxInsertionSortLength);
+            quickSortPivotLast(intArray, leftIndex + 1, startedRightIndex, insertionSort,maxInsertionSortLength);
         }
     }
     private static void quickSortPivotRandom(int[] intArray,final int startedLeftIndex,final int startedRightIndex){
@@ -60,6 +65,12 @@ public class QuickSort {
         }
         quickSortPivotRandom(intArray,startedLeftIndex,leftIndex-1);
         quickSortPivotRandom(intArray,leftIndex + 1,startedRightIndex);
+    }
+
+    public static void main(String[] args) {
+        int[] intArray = TestingPerformanceAlgorithms.randomIntArray(200,0,1_000_000);
+        quickSortPivotLast(intArray);
+        System.out.println(Helper.isIntArraySorted(intArray));
     }
 
     }

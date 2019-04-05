@@ -67,6 +67,16 @@ public class TestingPerformanceAlgorithms {
         }
         return randomArray;
     }
+
+    public static int[] randomIntArray(int length, int lowerBound,int upperBound){
+        java.util.Random random = new java.util.Random();
+        int[] randomArray = new int[length];
+        for (int i = 0; i < randomArray.length; i++) {
+            randomArray[i] = random.nextInt(upperBound + lowerBound) - lowerBound;
+        }
+        return randomArray;
+    }
+
     public static void printArray(int[] arr){
         for (int i : arr) {
             System.out.print(i + ", ");

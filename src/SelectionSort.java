@@ -14,10 +14,14 @@ public class SelectionSort {
         }
         return intArr;
     }
-    public static int[] sort(int[] intArray){
-        Integer[] arr = IntStream.of(intArray).boxed().toArray(Integer[]::new);
-        sort(arr);
-        return integerArrayToIntArray(arr);
+    public static void sort(int[] intArray){
+        ArrayVisualizer arrayVisualizer = new ArrayVisualizer(intArray);
+        int minIndex;
+        for(int i = 0; i < intArray.length;i++){
+            minIndex = min(intArray,i,intArray.length);
+            Helper.swap(intArray,i,minIndex);
+            arrayVisualizer.visualize();
+        }
     }
     public static <T extends Comparable<T>>void sort(List<T> list){
         int minIndex;
@@ -36,6 +40,20 @@ public class SelectionSort {
         }
     }
 
+    public static int min(int[] intArray,int from,int to){
+        if (intArray.length > 0) {
+            int min = intArray[from];
+            int minIndex = from;
+            for (int i = from + 1; i < to; i++) {
+                if (intArray[i] < min) {
+                    min = intArray[i];
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
+        return -1;
+    }
 
     public static <T extends Comparable<T>>int min(T[] arr,int from,int to) {
         if (arr.length > 0) {
@@ -69,14 +87,10 @@ public class SelectionSort {
 
 
     public static void main(String[] args) {
-        int[] intArray = new int[]{3,8,2,9,3};
+        int[] intArray = TestingPerformanceAlgorithms.randomIntArray(350,0,100_000_000);
 
-        List<Integer> ints = Arrays.asList(4,9,2,1,23,45,12,34,12,34,54,62,13,15,1);
-        Character[] chars = new Character[]{'a','z','b','c','x','y','e'};
-        String[] strings = new String[]{"Hallo","Baum","Haus","Auto","Tisch","AAAAA"};
-
-        sort(ints);
-        Helper.printList(ints);
+        sort(intArray);
+        Helper.printArray(intArray);
     }
 
 }

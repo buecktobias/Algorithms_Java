@@ -12,6 +12,15 @@ public class Helper {
         }
         return true;
     }
+    public static boolean isIntArraySorted(int[] intArray){
+        for(int i = 1; i < intArray.length;i++){
+            if(intArray[i-1] > intArray[i]){
+                return false;
+            }
+        }
+        return true;
+
+    }
     public static void printArray(int[] arr){
         for (int i : arr) {
             System.out.print(i + ", ");
