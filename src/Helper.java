@@ -45,7 +45,9 @@ public class Helper {
         array[index2] = temp;
     }
     public static <T> void swap(List<T> list,int index1,int index2 ){
-        Collections.swap(list,index1,index2);
+        T temp = list.get(index1);
+        list.set(index2,list.get(index1));
+        list.set(index1,temp);
     }
     public static void swap(int[] intArray, int index1, int index2){
         int temp = intArray[index1];

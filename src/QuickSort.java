@@ -9,7 +9,6 @@ public class QuickSort {
 
     }
     private static void quickSortPivotLast(int[] intArray, final int startedLeftIndex, final int startedRightIndex,final boolean insertionSort,int maxInsertionSortLength){
-        ArrayVisualizer arrayVisualizer = new ArrayVisualizer(intArray);
         if(startedLeftIndex >= startedRightIndex){
             return;
         }
@@ -28,13 +27,11 @@ public class QuickSort {
                 }
                 if (leftIndex < rightIndex) {
                     Helper.swap(intArray, leftIndex, rightIndex);
-                    arrayVisualizer.visualize();
                 }
 
             } while (leftIndex < rightIndex);
             if (intArray[leftIndex] > pivotValue) {
                 Helper.swap(intArray, leftIndex, startedRightIndex);
-                arrayVisualizer.visualize();
             }
             quickSortPivotLast(intArray, startedLeftIndex, leftIndex - 1, insertionSort,maxInsertionSortLength);
             quickSortPivotLast(intArray, leftIndex + 1, startedRightIndex, insertionSort,maxInsertionSortLength);
@@ -68,9 +65,9 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] intArray = TestingPerformanceAlgorithms.randomIntArray(200,0,1_000_000);
-        quickSortPivotLast(intArray);
-        System.out.println(Helper.isIntArraySorted(intArray));
+        Integer[] intArray = TestingPerformanceAlgorithms.randomIntArray(200,0,1_000_000);
+        //quickSortPivotLast(intArray);
+        //System.out.println(Helper.isIntArraySorted(intArray));
     }
 
     }

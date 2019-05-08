@@ -1,9 +1,6 @@
 import de.gmo.sae.sorting.visualization.ArrayVisualizer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 public class SelectionSort {
@@ -13,6 +10,20 @@ public class SelectionSort {
             intArr[i] = (int)arr[i];
         }
         return intArr;
+    }
+    public static void sort(int[] intArray,boolean visualize){
+        if(visualize){
+            sort(intArray);
+        }else{
+            sortNoVisualization(intArray);
+        }
+    }
+    public static void sortNoVisualization(int[] intArray){
+        int minIndex;
+        for(int i = 0; i < intArray.length;i++){
+            minIndex = min(intArray,i,intArray.length);
+            Helper.swap(intArray,i,minIndex);
+        }
     }
     public static void sort(int[] intArray){
         ArrayVisualizer arrayVisualizer = new ArrayVisualizer(intArray);
@@ -87,10 +98,12 @@ public class SelectionSort {
 
 
     public static void main(String[] args) {
-        int[] intArray = TestingPerformanceAlgorithms.randomIntArray(350,0,100_000_000);
+        Integer[] intArray = TestingPerformanceAlgorithms.randomIntArray(350,0,100_000_000);
+        List<Integer> integerList = (ArrayList<Integer>)Arrays.asList(1,4,23,43,54,12,32,43);
+        List<Integer> integerLinkedList = (LinkedList<Integer>)Arrays.asList(1,4,23,43,54,12,32,43);
 
-        sort(intArray);
-        Helper.printArray(intArray);
+        sort(integerList);
+        Helper.printList(integerList);
     }
 
 }

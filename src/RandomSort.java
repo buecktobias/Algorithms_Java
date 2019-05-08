@@ -3,6 +3,9 @@ import org.junit.jupiter.api.MethodOrderer;
 import java.util.*;
 
 public class RandomSort {
+    public static void randomSort(int[] intArray){
+
+    }
     public static void randomSort(List<Integer> integerList){
         while(!(Helper.isListSorted(integerList))){
             shuffleList(integerList);
